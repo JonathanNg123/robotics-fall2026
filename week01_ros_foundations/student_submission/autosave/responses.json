@@ -1,0 +1,99 @@
+{
+  "checked_evidence_ids": {
+    "mission_1": "ea3b0c4fe4e599c4"
+  },
+  "completed_missions": [
+    "mission_1"
+  ],
+  "lab_id": "week01_ros_foundations",
+  "responses": {
+    "mission_1.command_path_explanation": "A proposed command travels on /student_cmd_vel. The guard takes the proposed command and checks it before sending it to the robot. Then after being approved, it is published to /cmd_vel and sent to the robot.",
+    "mission_1.graph_explanation": "A ROS 2 graph shows the running ROS programs which are the nodes and how they can communicate using the topics. An example can be /ros.gz.bridge which shows the LiDAR information through the /scan topic which allows another node to subscribe to it.",
+    "mission_1.guided_checks": {
+      "bridge_info": true,
+      "command_topics": true,
+      "guard_info": true,
+      "node_list": true,
+      "scan_info": true,
+      "scan_message": true
+    },
+    "mission_1.scan_observation": "I found many different numbers as well as .inf under ranges which represents the distance in meters taken by the LiDAR of an object in a particular direction to the robot. I believe .inf means there is no object in the way of the robot for that specific direction.",
+    "mission_1.tools_explanation": "Gazebo is responsibile for the simulation, environment, and physics involved with the robot while RViz is responsibile for showing the ROS 2 data. ",
+    "mission_2.measurement_explanation": "",
+    "mission_2.motion_comparison": "",
+    "mission_2.prediction_locks": {
+      "straight": "2026-09-11T07:44:08.972337+00:00"
+    },
+    "mission_2.predictions": {
+      "straight": "I predict the robot will move forward only with no turning and will move 0.45 meters."
+    },
+    "mission_2.safety_explanation": "",
+    "part_1.activity": {
+      "hardware": {
+        "changed": true,
+        "normal": true
+      },
+      "sensor": {
+        "changed": true,
+        "normal": true
+      },
+      "timing": {
+        "changed": true,
+        "normal": true
+      }
+    },
+    "part_2.activity": {
+      "behavior": {
+        "changed": true,
+        "normal": true
+      },
+      "deliberative": {
+        "changed": true,
+        "normal": true
+      },
+      "hybrid": {
+        "changed": true,
+        "normal": true
+      },
+      "reactive": {
+        "changed": true,
+        "normal": true
+      },
+      "safety": {
+        "changed": true,
+        "normal": true
+      }
+    },
+    "part_3.activity": {
+      "communication": {
+        "service": true,
+        "topic": true
+      },
+      "failure": {
+        "healthy": true,
+        "sensor": true,
+        "type": true,
+        "visualization": true
+      },
+      "inspection": {
+        "broken": true,
+        "echo": true,
+        "node_info": true,
+        "nodes": true,
+        "services": true,
+        "topic_info": true,
+        "topics": true
+      },
+      "middleware": {
+        "multiple": true,
+        "single": true
+      }
+    }
+  },
+  "schema_version": 1,
+  "student": {
+    "email": "Jonathan.ng03@login.cuny.edu",
+    "name": "Jonathan Ng"
+  },
+  "updated_at": "2026-09-11T07:52:04.429024+00:00"
+}
