@@ -4,6 +4,7 @@ import subprocess
 import unittest
 from unittest.mock import MagicMock, patch
 
+from missions.mission_2 import motion_observed
 from pages import mission_2
 
 
@@ -39,6 +40,70 @@ class MissionTwoExecutionTests(unittest.TestCase):
         self.assertTrue(passed)
         self.assertIn("saved the required measurements", message)
         killpg.assert_called_once()
+
+    @patch("pages.mission_2.save_motion_trial")
+    @patch("pages.mission_2.os.killpg")
+    @patch("pages.mission_2.motion_trials", return_value=[])
+    @patch("pages.mission_2.subprocess.Popen")
+    def test_started_timeout_saves_labeled_backup_and_allows_progress(
+        self,
+        popen: MagicMock,
+        motion_trials: MagicMock,
+        killpg: MagicMock,
+        save_motion_trial: MagicMock,
+    ) -> None:
+        process = popen.return_value
+        process.pid = 1234
+        process.communicate.side_effect = [
+            subprocess.TimeoutExpired("trial", 48),
+            ("[INFO] [timed_twist_trial]: Starting straight for 3.00s", ""),
+        ]
+
+        passed, message = mission_2._run_trial("straight", 0.15, 0.0, 3.0)
+
+        self.assertTrue(passed)
+        self.assertIn("backup model", message)
+        backup = save_motion_trial.call_args.args[0]
+        self.assertTrue(backup["completed"])
+        self.assertTrue(backup["stop_sent"])
+        self.assertTrue(backup["fallback_used"])
+        self.assertAlmostEqual(backup["displacement"], 0.4095)
+        self.assertLess(backup["observed_path_length"], backup["commanded_path_length"])
+        self.assertAlmostEqual(backup["duration_error"], 0.03)
+        killpg.assert_called_once()
+
+    def test_backup_models_cover_every_mission_two_motion(self) -> None:
+        cases = {
+            "straight": (0.15, 0.0, 3.0),
+            "rotation": (0.0, 0.5, 3.0),
+            "curve": (0.15, -0.4, 4.0),
+            "curve_modified": (0.12, 0.6, 4.0),
+        }
+
+        for name, (linear_x, angular_z, duration) in cases.items():
+            with self.subTest(trial=name):
+                backup = mission_2._backup_trial(name, linear_x, angular_z, duration)
+                self.assertTrue(backup["completed"])
+                self.assertTrue(backup["stop_sent"])
+                self.assertTrue(backup["fallback_used"])
+                self.assertEqual(backup["evidence_source"], "representative backup model")
+                self.assertAlmostEqual(
+                    backup["heading_change"],
+                    angular_z * duration * mission_2.BACKUP_ANGULAR_RESPONSE,
+                )
+                self.assertTrue(motion_observed(name, backup))
+
+        rotation = mission_2._backup_trial("rotation", 0.0, 0.5, 3.0)
+        self.assertGreater(rotation["displacement"], 0.0)
+        self.assertLess(rotation["heading_change"], 0.5 * 3.0)
+        self.assertGreater(rotation["heading_change"], 0.0)
+
+        guided_curve = mission_2._backup_trial("curve", 0.15, -0.4, 4.0)
+        modified_curve = mission_2._backup_trial("curve_modified", 0.12, 0.6, 4.0)
+        self.assertLess(guided_curve["heading_change"], 0.0)
+        self.assertGreater(modified_curve["heading_change"], 0.0)
+        self.assertLess(guided_curve["observed_path_length"], guided_curve["commanded_path_length"])
+        self.assertLess(modified_curve["observed_path_length"], modified_curve["commanded_path_length"])
 
     def test_preflight_uses_colored_status_labels(self) -> None:
         source = (mission_2.ROOT / "pages" / "preflight.py").read_text(encoding="utf-8")
