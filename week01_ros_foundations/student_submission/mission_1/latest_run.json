@@ -1,12 +1,9 @@
 {
-  "evidence_id": "ea3b0c4fe4e599c4",
+  "evidence_id": "513943b8bccf734b",
   "graph": {
     "schema_version": 2,
-    "captured_at": "2026-09-11T07:37:44.901032+00:00",
+    "captured_at": "2026-09-11T09:30:49.735254+00:00",
     "nodes": [
-      {
-        "name": "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d"
-      },
       {
         "name": "/course_cmd_vel_guard"
       },
@@ -23,7 +20,7 @@
         "name": "/rviz2"
       },
       {
-        "name": "/transform_listener_impl_573c403a59a0"
+        "name": "/transform_listener_impl_6307e84649f0"
       }
     ],
     "topics": [
@@ -121,7 +118,6 @@
           "rcl_interfaces/msg/ParameterEvent"
         ],
         "publishers": [
-          "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d",
           "/course_cmd_vel_guard",
           "/course_evidence_collector",
           "/robot_state_publisher",
@@ -132,7 +128,7 @@
           "/robot_state_publisher",
           "/ros_gz_bridge",
           "/rviz2",
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       },
       {
@@ -151,13 +147,12 @@
           "rcl_interfaces/msg/Log"
         ],
         "publishers": [
-          "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d",
           "/course_cmd_vel_guard",
           "/course_evidence_collector",
           "/robot_state_publisher",
           "/ros_gz_bridge",
           "/rviz2",
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ],
         "subscribers": []
       },
@@ -194,7 +189,7 @@
           "/ros_gz_bridge"
         ],
         "subscribers": [
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       },
       {
@@ -206,7 +201,7 @@
           "/robot_state_publisher"
         ],
         "subscribers": [
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       }
     ],
@@ -428,7 +423,7 @@
         ]
       },
       {
-        "name": "/transform_listener_impl_573c403a59a0/get_type_description",
+        "name": "/transform_listener_impl_6307e84649f0/get_type_description",
         "types": [
           "type_description_interfaces/srv/GetTypeDescription"
         ]
@@ -442,36 +437,35 @@
         "angle_increment": 0.01749303564429283,
         "sample_count": 360,
         "finite_count": 327,
-        "minimum_finite_range": 0.5055360794067383
+        "minimum_finite_range": 0.49666517972946167
       },
       "/odom": {
         "frame_id": "odom",
         "child_frame_id": "base_footprint",
         "position": {
-          "x": 9.60078473942409e-09,
-          "y": -2.2140387427933827e-21
+          "x": 9.600784782557145e-09,
+          "y": -2.2140387626609936e-21
         },
         "orientation": {
           "x": 0.0,
           "y": 0.0,
-          "z": -2.3035138706961417e-13,
+          "z": -2.302574840789111e-13,
           "w": 1.0
         },
-        "linear_x": -6.898686308692251e-20,
-        "angular_z": -2.274746684520826e-19
+        "linear_x": -3.771943593241806e-20,
+        "angular_z": -9.347140921849213e-19
       },
       "/student_cmd_vel": null
     }
   },
   "stable_graph": {
     "nodes": [
-      "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d",
       "/course_cmd_vel_guard",
       "/course_evidence_collector",
       "/robot_state_publisher",
       "/ros_gz_bridge",
       "/rviz2",
-      "/transform_listener_impl_573c403a59a0"
+      "/transform_listener_impl_6307e84649f0"
     ],
     "topics": [
       [
@@ -568,7 +562,6 @@
           "rcl_interfaces/msg/ParameterEvent"
         ],
         [
-          "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d",
           "/course_cmd_vel_guard",
           "/course_evidence_collector",
           "/robot_state_publisher",
@@ -579,7 +572,7 @@
           "/robot_state_publisher",
           "/ros_gz_bridge",
           "/rviz2",
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       ],
       [
@@ -598,13 +591,12 @@
           "rcl_interfaces/msg/Log"
         ],
         [
-          "/_ros2cli_daemon_24_63e98fd9cee7450f84ff41858c7bd50d",
           "/course_cmd_vel_guard",
           "/course_evidence_collector",
           "/robot_state_publisher",
           "/ros_gz_bridge",
           "/rviz2",
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ],
         []
       ],
@@ -641,7 +633,7 @@
           "/ros_gz_bridge"
         ],
         [
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       ],
       [
@@ -653,7 +645,7 @@
           "/robot_state_publisher"
         ],
         [
-          "/transform_listener_impl_573c403a59a0"
+          "/transform_listener_impl_6307e84649f0"
         ]
       ]
     ]

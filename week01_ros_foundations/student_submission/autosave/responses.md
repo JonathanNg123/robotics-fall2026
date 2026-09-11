@@ -39,7 +39,7 @@ Gazebo is responsibile for the simulation, environment, and physics involved wit
 
 ## mission_2.predictions
 
-{'straight': 'I predict the robot will move forward only with no turning and will move 0.45 meters.'}
+{'rotation': '', 'straight': 'I predict the robot will move forward only with no turning and will move 0.45 meters.'}
 
 ## mission_2.safety_explanation
 
