@@ -5,6 +5,36 @@
 - Name: Jonathan Ng
 - Email: Jonathan.ng03@login.cuny.edu
 
+## final.architecture_evidence
+
+My node is reactive because it responds to current LiDAR sensor readings and nothing about the future just yet. The node used the distance in front of the robot to reactively decide what do to whether it is to move or stop. For a genuinely hybrid system, I believe I would need to combine reactive with planning that could make decisions for the future. How this could look like is the robot must plan a path while reacting to obstacles. 
+
+## final.course_reflection
+
+This activity made me come to appreciate robotics more. I took this class because I was interested in how robots were made and why they are so advanced compared to humans. After doing this activity and learning what I did, I would not say I am either more or less interested. My interest level is the same. I have never worked with ROS 2 before either which makes this experience even better as something new has been introduced. Something that shocked me was not the coding part, but in fact the technical aspects such as sensors and safety. I thought this class was straight coding. I was sorely mistaken.
+
+## final.hardware_next
+
+Before using the behavior on hardware, I would personally test more on the invalid sensor readings as these are very important to making sure the robot has the proper safety measures.
+
+## final.middleware_debugging
+
+The ROS graph helps me diagnose a command by seeing which nodes and topics are connected. This allows us to check whether the node command is actually publishing to the correct topic. For example, in this lab we verified that obstacle_guard subscribed to /scan and published to /student_cmd_vel. 
+
+## final.system_synthesis
+
+This lab showed me that robotics software is difficult because of how many different components make up a robot. I had originally thought robots were not as complex as I thought, but doing something so simple such as this lab really opened my eyes on what really goes into a robot. Sensors, communication, and movement can all affect the entire robot. An example is mission 1. We saw that ROS 2 had separated the robot system to different nodes and topics instead of having it all inside one program that can control everything. Before doing this lab, I had thought that robots were just one big system, but I was wrong. I had not even known what a node or topic was. However, I realized that the nodes and topics make the system easier to organize and identify potential issues.
+
+The architecture I implemented was somewhat of a thinking and doing architecture. The robot took in information from the LiDAR sensors. It responded to that information by taking it in and making a decision instead of making a long plan. The front_distance() function examined the readings and chose the closest distance measurement in front of the robot. Then, decide_velocity() used that measurement to decide whether the robot should move forward or stop. One advantage of this stop and think architecture is that it is simple and gets the job done by responding to the environment around it. However, there is a major trade off with how simple it is. This type of robot only reacts to current sensor readings and not planning for the future.
+
+ROS 2 middleware connected several parts of the system and allowed it to communicate. For example, the LiDAR sensor shows the distances through the /scan topic. The obstacle_guard node used the decision functions to determine a velocity. The obstacle_guard node then published the velocity result to /student_cmd_vel. The command guard provides more safety before movement commands could be sent to the robot so some unnecessary movements do not need to be made. This shows how ROS 2 middleware allowed the sensor, ROS nodes, decision functions, and command guard to work together to allow the robot to function.
+
+
+
+## final.timing_evidence
+
+The sensor-failure result affected my understanding of safety the most. This is because when there is no valid distance measurment, the program just stops the robot instead of making assumptions. This showed me that missing or invalid information needs to be addressed carefully because the robot cannot safely assume things.
+
 ## mission_1.command_path_explanation
 
 A proposed command travels on /student_cmd_vel. The guard takes the proposed command and checks it before sending it to the robot. Then after being approved, it is published to /cmd_vel and sent to the robot.
@@ -48,6 +78,18 @@ For the cuved trial, the live simulation results matched fairly similar to my pr
 ## mission_2.safety_explanation
 
 The command guard checks every driving command before sending it to the robot while also preventing too high of speeds and values that are invalid. The final zero command tells the robot to stop by changing its forward and turning speed to zero. The timeout is needed if a program crashes or communication stops when the robot is in motion
+
+## mission_3.data_to_command
+
+The front_distance() function looks at the list of distance readings and checks if each distance is valid and in front of the robot. After validating the distances, it then finds the closest valid distance. The decide_velocity() function uses the closest distance to decide whether the robot should move or stop. If an obstacle is in the way, the robot stops.
+
+## mission_3.missing_data_safety
+
+The robot stops when there is no valid front measurement because it still does not know if the path ahead is clear. If the data is invalid, letting the robot move can cause it to run into an obstacle that it was not able to detect. Stopping is the safer option.
+
+## mission_3.system_layers
+
+My decision functions determine whether the robot should move or stop. The supplied ROS node takes the readings from /scan and uses the decision funtions to make a decision. It then puts the chosen velocity to /student_cmd_vel. The command guard basically adds more safety by regulating how the command is passed. These work together by making the robot adjust to obstacles while making sure its safe.
 
 ## part_1.activity
 

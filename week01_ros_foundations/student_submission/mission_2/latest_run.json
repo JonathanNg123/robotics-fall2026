@@ -1,0 +1,184 @@
+{
+  "evidence_id": "8694ebdc4bdc459b",
+  "trials": [
+    {
+      "trial_type": "straight",
+      "captured_at": "2026-09-11T09:31:48.372785+00:00",
+      "linear_x": 0.15,
+      "angular_z": 0.0,
+      "duration": 3.0,
+      "command_started_at": "2026-09-11T09:31:48.372785+00:00",
+      "zero_command_sent_at": "2026-09-11T09:31:48.372785+00:00",
+      "actual_command_duration": 3.03,
+      "duration_error": 0.03,
+      "commanded_path_length": 0.44999999999999996,
+      "expected_linear_travel": 0.44999999999999996,
+      "observed_path_length": 0.40950000000000003,
+      "start_pose": {
+        "x": 0.0,
+        "y": 0.0,
+        "theta": 0.0
+      },
+      "end_pose": {
+        "x": 0.40950000000000003,
+        "y": 0.0,
+        "theta": 0.0
+      },
+      "displacement": 0.40950000000000003,
+      "heading_change": 0.0,
+      "completed": true,
+      "stop_sent": true,
+      "fallback_used": true,
+      "evidence_source": "representative backup model",
+      "modeled_response": {
+        "linear_response_fraction": 0.91,
+        "angular_response_fraction": 0.93,
+        "timing_overhead_seconds": 0.03
+      },
+      "stop_method": "command guard after live-trial timeout"
+    },
+    {
+      "trial_type": "rotation",
+      "captured_at": "2026-09-11T15:49:59.427325+00:00",
+      "linear_x": 0.0,
+      "angular_z": 0.5,
+      "duration": 3.0,
+      "command_started_at": "2026-09-11T15:49:55.885937+00:00",
+      "zero_command_sent_at": "2026-09-11T15:49:58.907545+00:00",
+      "actual_command_duration": 3.021609011999999,
+      "duration_error": 0.021609011999998984,
+      "commanded_path_length": 0.0,
+      "expected_linear_travel": 0.0,
+      "observed_path_length": 5.643301564164722e-05,
+      "start_pose": {
+        "x": 9.600827908572762e-09,
+        "y": -2.2140538866538106e-21,
+        "theta": -5.193106074015585e-13
+      },
+      "end_pose": {
+        "x": -7.17746795085526e-06,
+        "y": -2.3564980771024616e-05,
+        "theta": 0.7104805036456623
+      },
+      "displacement": 2.463660440014901e-05,
+      "heading_change": 0.7104805036461816,
+      "completed": true,
+      "stop_sent": true
+    },
+    {
+      "trial_type": "curve",
+      "captured_at": "2026-09-11T15:54:24.263431+00:00",
+      "linear_x": 0.15,
+      "angular_z": -0.4,
+      "duration": 4.0,
+      "command_started_at": "2026-09-11T15:54:19.692813+00:00",
+      "zero_command_sent_at": "2026-09-11T15:54:23.724831+00:00",
+      "actual_command_duration": 4.032018956999991,
+      "duration_error": 0.03201895699999113,
+      "commanded_path_length": 0.6,
+      "expected_linear_travel": 0.6,
+      "observed_path_length": 0.3744186370927955,
+      "start_pose": {
+        "x": -7.177467974453694e-06,
+        "y": -2.356498079135108e-05,
+        "theta": 0.7104805036459036
+      },
+      "end_pose": {
+        "x": 0.35303321144141536,
+        "y": 0.06530146761726081,
+        "theta": -0.3176783657864994
+      },
+      "displacement": 0.3590332520606271,
+      "heading_change": -1.028158869432403,
+      "completed": true,
+      "stop_sent": true
+    },
+    {
+      "trial_type": "curve_modified",
+      "captured_at": "2026-09-11T15:57:53.213574+00:00",
+      "linear_x": 0.12,
+      "angular_z": 0.6,
+      "duration": 4.0,
+      "command_started_at": "2026-09-11T15:57:48.698334+00:00",
+      "zero_command_sent_at": "2026-09-11T15:57:52.710201+00:00",
+      "actual_command_duration": 4.011866953000208,
+      "duration_error": 0.011866953000208014,
+      "commanded_path_length": 0.48,
+      "expected_linear_travel": 0.48,
+      "observed_path_length": 0.28194551185844424,
+      "start_pose": {
+        "x": 0.353033211441158,
+        "y": 0.06530146761726173,
+        "theta": -0.3176783657905958
+      },
+      "end_pose": {
+        "x": 0.5897082367473713,
+        "y": 0.17085508467555155,
+        "theta": 1.1266558911812787
+      },
+      "displacement": 0.25914596982740207,
+      "heading_change": 1.4443342569718745,
+      "completed": true,
+      "stop_sent": true
+    }
+  ],
+  "reset_confirmed": false,
+  "check": [
+    {
+      "id": "predictions",
+      "label": "Four predictions were written before running",
+      "passed": true,
+      "actual": "4 written, 4 saved",
+      "expected": "4 written and saved"
+    },
+    {
+      "id": "trials",
+      "label": "Four motion trials completed with a stop command",
+      "passed": true,
+      "actual": 4,
+      "expected": "4 of 4"
+    },
+    {
+      "id": "motion",
+      "label": "Each trial produced the expected kind of live or modeled motion",
+      "passed": true,
+      "actual": 4,
+      "expected": "4 of 4"
+    },
+    {
+      "id": "prediction_order",
+      "label": "Each saved prediction came before its trial",
+      "passed": true,
+      "actual": 4,
+      "expected": "4 of 4"
+    },
+    {
+      "id": "limits",
+      "label": "All commands stayed within the course speed limits",
+      "passed": true,
+      "actual": "within limits",
+      "expected": "within limits"
+    },
+    {
+      "id": "modified_settings",
+      "label": "The recorded modified curve matches the selected sliders",
+      "passed": true,
+      "actual": "matches",
+      "expected": "matches"
+    },
+    {
+      "id": "timing",
+      "label": "Timing and zero-command evidence were recorded",
+      "passed": true,
+      "actual": 4,
+      "expected": "4 of 4"
+    },
+    {
+      "id": "synthesis",
+      "label": "Three evidence-based explanations are complete",
+      "passed": true,
+      "actual": 3,
+      "expected": "3 of 3"
+    }
+  ]
+}
