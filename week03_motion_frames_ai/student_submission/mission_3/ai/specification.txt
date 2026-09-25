@@ -1,0 +1,1 @@
+I want the robot to follow a rounded rectangle using eight motion segments. The rounded rectangle will alternate between four straight forward sections of 0.40 m, 0.25 m, 0.40 m, and 0.25 m, with a 90-degree left arc with a radius of 0.15 m after each straight section. The speeds will stay within 0.22 m/s for linear velocity and 0.80 rad/s for angular velocity. 
