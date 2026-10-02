@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-01T20:05:58",
+  "mission_id": "mission_2",
+  "student": {
+    "name": "",
+    "student_id": "",
+    "section": ""
+  },
+  "explanations": {
+    "prediction": "The estimated forward distance will be greater than the robot's actual distance. If the strafe pod is too small, the sideway distance will be less than the robot's actual distance.",
+    "calibration_analysis": "I predicted that a forward scale that was too large would overestimate the forward distance while a strafe scale that was too small would underestimate the sideways distance. The forward scale changed how the encoder ticks were turned into forward distance while the strafe scale changed how the sideways movement was estimated. The sideways pod is necessary because a robot can move sideways with no turns so the forward pod can not measure all of the motion. Some drift remained after calibration because odometry is only an estimate and small errors can always occur."
+  },
+  "params": {
+    "forwardInPerTick": 0.05,
+    "strafeInPerTick": 0.0505
+  },
+  "metrics": {
+    "max_error_in": 0.599999999999973,
+    "final_error_in": 0.599999999999973,
+    "passed": true
+  },
+  "result": {
+    "passed": true,
+    "maxError": 0.599999999999973,
+    "finalError": 0.599999999999973,
+    "params": {
+      "forwardInPerTick": 0.05,
+      "strafeInPerTick": 0.0505
+    }
+  },
+  "csv_files": {
+    "odometry_test_summary.csv": "max_error_in,final_error_in,forward_in_per_tick,strafe_in_per_tick,passed_server_check\r\n0.599999999999973,0.599999999999973,0.05,0.0505,True\r\n"
+  },
+  "activity_gifs": [
+    "latest_odometry_test.gif"
+  ]
+}
