@@ -11,6 +11,7 @@ class LabConfig:
 LAB = LabConfig(
     id="week06_slam_localization",
     title="Week 6: SLAM and Localization",
-    stages=("intro", "concepts", "preflight", "mission_1", "mission_2", "mission_3", "final"),
+    stages=("intro", "tutorial_1", "tutorial_2", "preflight", "tutorial_3",
+            "mission_1", "mission_2", "tutorial_4", "tutorial_5", "mission_3", "final"),
     missions=("mission_1", "mission_2", "mission_3"),
 )

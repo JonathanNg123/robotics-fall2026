@@ -1,49 +1,43 @@
 # Instructor notes — Week 6
 
-## Intent and scope
+## Intent and teaching sequence
 
-This 3–3.5 hour individual lab teaches students to operate, inspect, and evaluate SLAM/localization systems. It deliberately avoids implementing scan matching, graph optimization, or particle filtering. The intellectual work is experimental design and interpretation: students must distinguish map appearance from map quality and a displayed pose from warranted confidence.
+This lab teaches students to investigate SLAM and localization, not implement the underlying algorithms. The five tutorials are deliberately short bridges from earlier labs: dead reckoning from Lab 4, evidence interpretation from Labs 1 and 3, and sensor uncertainty and safe decisions from Lab 5. Students make predictions before each experiment, then use measured and visual evidence to revise their understanding.
 
-## Suggested timing
+The current mission numbering is unchanged: Mission 1 makes the first map; Mission 2 compares a second strategy; Mission 3 contains all four AMCL trials, including the degraded-scan analysis. The student guide allows revisiting tutorials and completed work.
 
-| Activity | Time |
-|---|---:|
-| Concepts and preflight | 25–30 min |
-| Mission 1 mapping | 45–55 min |
-| Mission 2 controlled strategy comparison | 45–55 min |
-| Mission 3 localization trials | 60–75 min |
-| Synthesis and artifact review | 20 min |
+## Timing to pilot
 
-## Experimental controls
+The previous 3–3.5-hour estimate should be rechecked with an unfamiliar student after adding the tutorials. Aim for short tutorial interactions and reserve most time for two mapping runs and four localization trials. If the pilot runs long, streamline explanations or launch overhead rather than removing controlled runs or forcing a rushed final synthesis.
 
-Mapping comparisons are only meaningful when the world, robot, approximate duration, map resolution, and software configuration remain fixed. Require a simulator/SLAM restart between runs. The route strategy should be the main changed variable. The analyzer reports known fraction, occupied/free fractions, small occupied speckles, border contact, component count, and a transparent composite quality score. The score is a discussion scaffold—not ground truth and not a replacement for visual inspection.
+## Experimental controls and interpretation
 
-Students should not claim loop closure merely because the map grew. Stronger evidence includes revisiting a known area followed by a visible correction to earlier walls or trajectory, reduced duplicate structures, or a pose-graph response observed through appropriate diagnostics. Accept a well-supported conclusion that evidence was insufficient.
+For map comparisons, keep the world, robot, map settings, start conditions, and run duration similar. The route strategy should be the main planned change. Students record remaining confounds. Known fraction measures observed area, not correctness. The composite score is a transparent discussion scaffold; inspect wall alignment, duplicated structures, unobserved rooms, and map clipping. Accept a well-supported conclusion that loop-closure evidence is insufficient.
 
-For localization, AMCL covariance represents the algorithm’s modeled uncertainty, not guaranteed physical error. Reward students who explicitly separate covariance, consistency, recovery, and ground truth. An apparently confident but incorrect estimate is the key failure mode.
+For localization, distinguish three claims:
 
-## Degraded-scan condition
+1. **Concentration:** AMCL covariance or particle spread became smaller.
+2. **Consistency:** current scans and estimated pose appear compatible with the map.
+3. **Correctness:** an independent reference supports the actual pose.
 
-The supplied `scan_degrader` retains approximately 50% of scans and adds Gaussian range noise before publishing `/scan_degraded`. The localization wrapper remaps AMCL’s `/scan` input inside the Navigation2 launch group while leaving the original scan visible to the recorder. This is a pedagogical perturbation, not a calibrated physical sensor model.
+The recorder subscribes to an optional `/course_reference_pose` PoseStamped topic only when its frame is `map`. The standard launch does not produce a certified reference. Do not grade numeric position error until a source and frame alignment have been tested in the course container. World-frame Gazebo coordinates must not be subtracted directly from map-frame AMCL estimates. The app shows unavailable error as unavailable, not zero. A concentrated but incorrect estimate is an important case for discussion.
 
-## Assessment suggestion (100 points)
+The degraded-scan proxy keeps approximately half of scan messages and adds range noise. This is a pedagogical perturbation, not a calibrated physical sensor model. Students compare normal and degraded runs while acknowledging other sources of variation.
 
-- Mission 1 map construction, system observation, and map interpretation: 25
-- Mission 2 controlled comparison and loop-closure reasoning: 25
-- Mission 3 four trials, quantitative interpretation, and safe fallback: 35
-- Final synthesis: 10
-- Complete, reproducible artifacts: 5
+## Suggested assessment
 
-Automated gates check minimum evidence. Manually assess whether metrics are interpreted correctly, whether the strategy comparison controls confounds, whether screenshots support claims, and whether limitations identify affected stakeholders.
+- Mission 1 route prediction, guided observations, valid map, and interpretation: 25
+- Mission 2 controlled comparison, metrics, visual evidence, and loop-closure reasoning: 25
+- Mission 3 four predictions/trials, uncertainty-versus-correctness analysis, and fallback rule: 35
+- Evidence-based final synthesis and individual reflection: 10
+- Complete, inspectable artifacts: 5
 
-## Common problems
+Automated checks establish minimum evidence, not the quality of every causal claim. Manually inspect whether screenshots and numeric data support the student's interpretation, whether controls were credible, and whether uncertainty is treated honestly.
 
-- **No map appears:** verify `/scan`, `/odom`, TF, simulated time, and the SLAM lifecycle state.
-- **Map saver times out:** confirm `/map` is publishing and wait for lifecycle activation.
-- **AMCL never converges:** check that the saved map matches the world, set an initial pose, drive through distinctive geometry, and verify scan/map frame alignment.
-- **Degraded scan is not counted:** confirm both `/scan` and `/scan_degraded` publish and that degraded mode was selected.
-- **Cross-talk between students:** assign unique `ROS_DOMAIN_ID` values.
+## Support and release checks
 
-## Accessibility and recovery
-
-Plots and screenshots are supported by numeric JSON evidence and written prompts; grading must not depend on color alone. If a run crashes, preserve the existing `student_submission/` directory and rerun only the missing condition. Evidence is deterministic in format but necessarily differs across student driving behavior.
+- Preflight verifies installed ROS components before a mission; live topic checks occur after launching Gazebo and SLAM.
+- If `/map` is absent, check `/scan`, `/odom`, TF, simulated time, and SLAM lifecycle. If map saving times out, wait for `/map` and map-server lifecycle readiness.
+- If AMCL has no pose samples, check the initial pose, the map/world match, `/scan`, and frame alignment. For degraded mode, confirm both raw and degraded scan topics.
+- Never advise a student to reset, clean, or overwrite their submission in response to a course update. Back up `student_submission/`, inspect `git status`, and preserve their commit.
+- Pilot all four trials in the actual shared container before release. Verify map-pair validation, screenshot uploads, browser restart, old-save migration, readiness, ZIP contents, and a personal-fork Git commit.

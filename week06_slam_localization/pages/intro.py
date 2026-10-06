@@ -5,7 +5,13 @@ def render(st):
     st.info("This is individual work. Your maps, trials, explanations, and submission artifacts must come from your own runs.")
     st.subheader("Learning objectives")
     st.markdown("- Explain how LiDAR, odometry, transforms, pose estimates, and an occupancy grid interact.\n- Build and save a map using SLAM.\n- compare exploration strategies using quantitative and visual evidence.\n- Initialize and evaluate localization in a saved map.\n- Distinguish a pose estimate from certainty about that estimate.\n- Identify conditions under which a robot should admit it does not know where it is.")
+    st.subheader("The route through this lab")
+    st.write("Five short tutorials prepare you for two controlled mapping runs and four localization trials. Save a prediction before each experiment, then compare it with evidence. You can revisit earlier pages from Lab navigation.")
     student = dict(st.session_state["student"])
-    for key, label in (("name", "Full name"), ("email", "Hunter email"), ("course_id", "Course ID / roster identifier")): student[key] = st.text_input(label, student.get(key, ""))
+    for key, label in (("name", "Full name"), ("email", "Hunter email"), ("course_id", "Course ID / roster identifier")):
+        widget = "student." + key
+        if widget not in st.session_state: st.session_state[widget] = student.get(key, "")
+        student[key] = st.text_input(label, key=widget)
+    st.caption("These fields identify your individual submission. They do not sign you up for email or advertisements.")
     st.session_state["student"] = student
-    if st.button("Begin", type="primary", disabled=not all(str(value).strip() for value in student.values())): set_stage(st, "concepts")
+    if st.button("Begin", type="primary", disabled=not all(str(value).strip() for value in student.values())): set_stage(st, "tutorial_1")
