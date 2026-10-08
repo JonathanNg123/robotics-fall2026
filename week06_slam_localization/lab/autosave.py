@@ -10,7 +10,7 @@ from pathlib import Path
 from lab_config import LAB
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTENT_VERSION = 2
+CONTENT_VERSION = 5
 STATE_KEYS = (
     "stage", "student", "responses", "completed_missions", "checked_evidence_ids",
     "evidence", "tutorial_complete", "prediction_locks", "visited_stages",
@@ -53,7 +53,7 @@ def _usable(data: object) -> bool:
         return False
     if not isinstance(data.get("student"), dict) or not isinstance(data.get("responses"), dict):
         return False
-    if any(not isinstance(data["student"].get(key), str) for key in ("name", "email", "course_id")):
+    if any(not isinstance(data["student"].get(key), str) for key in ("name", "email")):
         return False
     for key in ("checked_evidence_ids", "evidence", "tutorial_complete", "prediction_locks"):
         if key in data and not isinstance(data[key], dict):
@@ -77,6 +77,9 @@ def load_state() -> dict:
                 data["recovered_from_backup"] = True
             if data.get("stage") == "concepts":
                 data["stage"] = "tutorial_1"
+            if data.get("stage") in ("tutorial_4", "tutorial_5", "mission_3"):
+                data["stage"] = "final" if "mission_2" in data.get("checked_evidence_ids", {}) else "mission_2"
+                data["recovery_note"] = "The localization section was moved to a future lab module. Your earlier answers and files were preserved. Lab 6 now ends after Mission 2."
             if data.get("stage") not in LAB.stages:
                 data["stage"] = "intro"
             if data.get("content_version", 1) < CONTENT_VERSION:

@@ -8,21 +8,21 @@ from lab_config import LAB
 
 def render(st):
     st.header("Final synthesis and submission")
-    st.write("Bring motion evidence, sensor evidence, and the saved map together. Technical synthesis and personal reflection are separate pieces of writing.")
-    st.code("motion evidence + sensor evidence + map → belief about pose")
+    st.write("Bring motion evidence, LiDAR observations, and both saved maps together. Technical synthesis and personal reflection are separate pieces of writing.")
+    st.code("motion estimate + LiDAR observations → occupancy-grid map")
     synthesis = text_response(
         st, "final.synthesis",
-        "In 200–300 words, explain what it means for this robot to know where it is. Use mapping and localization evidence to connect motion error, map quality, loop closure, initial pose, sensor quality, ambiguity, and convergence.",
+        "In 200–300 words, explain what the robot can and cannot know about the TurtleBot3 House from your two maps. Use evidence from both routes to discuss LiDAR coverage, motion-estimate error, possible map corrections on revisits, mapping time, and visible map limitations. Explain which map you would trust more for a later task and why.",
         height=220,
     )
     words = len(synthesis.split())
     st.caption(f"Technical synthesis: {words}/200–300 words")
     reflection_ready = render_final_reflection(st)
     status = mission_status(st)
-    identity = all(str(value).strip() for value in st.session_state["student"].values())
+    identity = all(str(st.session_state["student"].get(key, "")).strip() for key in ("name", "email"))
     checks = [(mission.replace("_", " ").title() + " current saved evidence", valid) for mission, valid in status.items()]
     checks += [
-        ("Student name, email, and Course ID", identity),
+        ("Student name and email", identity),
         ("Technical synthesis contains 200–300 words", 200 <= words <= 300),
         ("Individual reflection contains 1–300 words", reflection_ready),
     ]

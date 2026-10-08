@@ -96,7 +96,7 @@ def write_manifest(st):
     status = mission_status(st)
     if not all(status.values()):
         raise ValueError("Recheck and save every changed mission before export")
-    if not all(str(value).strip() for value in st.session_state["student"].values()):
+    if not all(str(st.session_state["student"].get(key, "")).strip() for key in ("name", "email")):
         raise ValueError("Student identity is incomplete")
     responses = st.session_state["responses"]
     if not 200 <= len(str(responses.get("final.synthesis", "")).split()) <= 300:

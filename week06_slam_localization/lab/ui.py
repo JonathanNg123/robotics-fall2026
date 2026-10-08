@@ -21,7 +21,7 @@ def render_check(st, check):
     )
 
 
-def show_map(st, image_item, caption):
+def show_map(st, image_item, caption, width=620):
     if image_item is None:
         return
     from analysis.map_metrics import read_pgm_bytes
@@ -30,7 +30,7 @@ def show_map(st, image_item, caption):
     try:
         width, height, maximum, pixels = read_pgm_bytes(image_item.getvalue())
         image = np.array(pixels, dtype=np.float32).reshape(height, width) * (255.0 / maximum)
-        st.image(image.astype("uint8"), caption=caption, clamp=True, width="stretch")
+        st.image(image.astype("uint8"), caption=caption, clamp=True, width=width)
         st.caption("Light = free, dark = occupied, gray = unknown. Use the numeric table as an accessible alternative.")
     except (ValueError, IndexError, ZeroDivisionError) as error:
         st.error(f"Could not preview this PGM map: {error}")

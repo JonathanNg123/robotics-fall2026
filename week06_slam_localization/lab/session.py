@@ -3,7 +3,7 @@ from __future__ import annotations
 
 def initialize(st):
     defaults = {
-        "stage": "intro", "student": {"name": "", "email": "", "course_id": ""},
+        "stage": "intro", "student": {"name": "", "email": ""},
         "responses": {}, "completed_missions": [], "checked_evidence_ids": {},
         "evidence": {}, "tutorial_complete": {}, "prediction_locks": {},
         "visited_stages": ["intro"],

@@ -1,6 +1,6 @@
-# Week 6 — SLAM and Localization
+# Week 6: SLAM and Mapping
 
-This individual lab uses ROS 2 Jazzy, TurtleBot3 simulation, SLAM Toolbox, AMCL, RViz, and a Streamlit guide. Students use existing robotics systems to investigate how motion and sensor evidence support—or fail to support—a map and a pose belief.
+This individual lab uses ROS 2 Jazzy, the TurtleBot3 House simulation, SLAM Toolbox, RViz, and a Streamlit guide. Students investigate how motion and LiDAR evidence support or limit an occupancy-grid map. The AMCL localization mission has been moved to [a future-lab module](../future_lab_modules/localization_from_saved_map/README.md).
 
 ## Student path
 
@@ -9,11 +9,11 @@ This individual lab uses ROS 2 Jazzy, TurtleBot3 simulation, SLAM Toolbox, AMCL,
 3. ROS preflight and Guided Tutorial 3: identify measurements, estimates, and accumulated map evidence in RViz.
 4. Mission 1: predict a route, map, revisit, save, and interpret.
 5. Mission 2: predict and compare a controlled second strategy.
-6. Guided Tutorials 4 and 5: move from SLAM to localization and read AMCL's particle belief.
-7. Mission 3: predict and record four clean-start localization conditions, then apply a safe decision rule.
-8. Write the technical synthesis and separate individual reflection; prepare and inspect the submission.
+6. Write the technical synthesis and separate individual reflection. Prepare and inspect the submission.
 
 The guide marks original predictions before results. A prediction can be wrong and still be valuable evidence of learning. Do not edit PGM maps or evidence JSON by hand.
+
+Lab 6 uses TurtleBot3 House for both mapping runs. Maps made in the earlier TurtleBot3 World do not match the House layout. Keep those older files as backups, then create and analyze new House maps before comparing runs.
 
 ## Start the shared course environment
 
@@ -31,23 +31,19 @@ macOS/Linux:
 ./scripts/ros_course.sh lab week06_slam_localization
 ```
 
-In the browser desktop terminal, run:
+The guide opens at `http://localhost:8501`. The course launcher sets `ROS_DOMAIN_ID=26` and opens the lab directory. A new desktop terminal may not inherit that setting, so the Lab 6 launch scripts set it explicitly. On the preflight page, click **Run preflight now**. The guide runs `bash scripts/course_preflight.sh` in the shared container and ignores results from earlier launches. Guided Tutorial 3 starts mapping and RViz. Keep both running as you enter Mission 1. Do not launch a second copy. Stop the robot before switching terminals. Never run two Gazebo worlds in the same domain.
 
-```bash
-bash scripts/course_preflight.sh
-```
+New virtual desktop terminals may open at `/workspace`, not the Lab 6 folder. Each command block in the guide begins with `cd /workspace/week06_slam_localization` so scripts and runtime files resolve correctly. The guide includes a delayed desktop capture command for RViz screenshots. Switch to RViz during the delay, then inspect the saved image before checking the mission.
 
-The guide opens at `http://localhost:8501`. The course launcher sets `ROS_DOMAIN_ID=26` and opens the lab directory. Follow the guide's separate terminal blocks; leave the mapping or localization launch open while running its companion commands. Stop the robot before switching terminals. Never run two Gazebo worlds or two localization systems in the same domain.
-
-If the simulator or recorder fails, preserve `student_submission/` and rerun only the missing condition. The guide can read files from `runtime/` automatically, accept uploads when running separately, and reopen previously saved submission artifacts. In Mission 2, keep the world, robot, map resolution, starting conditions, and approximate duration as similar as practical.
+If the simulator or recorder fails, preserve `student_submission/` and rerun only the missing condition. The guide reads files from `runtime/` automatically and can reopen previously saved submission artifacts. No file uploads are needed. Save RViz screenshots at the paths shown in the guide. In Mission 2, stop the first mapping launch, run `bash scripts/reset_mapping.sh`, then start a fresh world with the robot at its original pose and an empty SLAM map. The reset closes leftover Gazebo processes but does not change saved map files. Time both routes from first movement to a usable map and compare time alongside coverage and visible structure.
 
 ## What the numbers mean
 
-Known fraction, speckles, border contact, and the composite map score help compare maps but do not establish a true geometric map error. AMCL covariance measures modeled uncertainty, not actual position error. The supplied recorder only reports true position/heading error when it receives a separately verified `/course_reference_pose` in the `map` frame. The standard course launch does not guarantee that topic, so a missing reference is reported as unavailable; use RViz and the simulated robot for a clearly labeled qualitative judgment. Do not claim numeric true error from covariance.
+Known fraction, speckles, border contact, and the composite map score help compare maps but do not establish a true geometric map error. They are discussion evidence, not passing thresholds. Use RViz and the simulated robot to judge visible structure and label uncertainty honestly.
 
 ## Submission and recovery
 
-Prepare the submission in the guide. Its readiness table checks current mission artifacts, writing, and identity. The manifest records file hashes; download the ZIP as a backup. In your personal fork, commit the complete `student_submission/` directory from the repository root:
+Prepare the submission in the guide. Its readiness table checks current mission artifacts, writing, and identity. The manifest records file hashes. Download the ZIP as a backup. In your personal fork, commit the complete `student_submission/` directory from the repository root:
 
 ```bash
 git status
@@ -70,4 +66,4 @@ python3 -m unittest discover -s tests -v
 python3 -m compileall -q app.py analysis lab missions pages ros2_ws/src/course_slam_tools/course_slam_tools
 ```
 
-Full release verification must run in the course ROS 2 container: build `ros2_ws`, run preflight, produce both maps, verify the YAML/PGM pairs and previews, run four clean-start localization conditions (including degraded scan), restart the browser, and prepare the final ZIP. Check that a confidence-only result is not labeled true error. A map-frame reference topic, if supplied for an instructor demonstration, must be calibrated and independently checked against Gazebo before numeric localization error is used for assessment.
+Full release verification must run in the course ROS 2 container. Build `ros2_ws`, run preflight, produce both maps, verify the YAML/PGM pairs and previews, restart the browser, and prepare the final ZIP. Confirm that Mission 2 leads directly to the final page and that no localization trial is required for submission.

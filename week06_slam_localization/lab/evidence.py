@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from analysis.map_metrics import analyze_pixels, read_pgm_bytes
+from lab_config import WORLD_ID
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,7 +45,9 @@ def load_json(item):
 def validate_map_bundle(evidence, yaml_item, image_item):
     """Return the checked map metrics or an actionable error message."""
     if not all((evidence, yaml_item, image_item)):
-        return None, "Provide analysis JSON, map YAML, and map PGM."
+        return None, "Save the map, then run the analyzer. The guide needs the analysis JSON, map YAML, and map PGM in the shared runtime folder."
+    if evidence.get("world_id") != WORLD_ID:
+        return None, "This map analysis is not marked as TurtleBot3 House. Make a new map in the House world and rerun the analyzer. Earlier map files are preserved."
     try:
         lines = yaml_item.getvalue().decode("utf-8").splitlines()
         metadata = {}
@@ -63,7 +66,7 @@ def validate_map_bundle(evidence, yaml_item, image_item):
             return None, "Analysis JSON has no metrics object."
         for key in ("width", "height", "resolution", "known_fraction"):
             if abs(float(reported[key]) - float(computed[key])) > (0.005 if key == "known_fraction" else 1e-8):
-                return None, f"Analysis JSON {key} does not match this map pair; analyze the selected YAML again."
+                return None, f"Analysis JSON {key} does not match this map pair. Analyze the selected YAML again."
         if evidence.get("map_image") and Path(evidence["map_image"]).name != image_item.name:
             return None, "Analysis JSON refers to a different map image."
         return computed, None

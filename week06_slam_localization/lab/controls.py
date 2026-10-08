@@ -16,7 +16,7 @@ def prediction(st, activity, context, prompt, *, min_chars=20):
             st.session_state["prediction_locks"] = locks
             set_response(st, activity + ".original_prediction", record["text"])
     elif record.get("context_signature") != signature:
-        st.warning("The experiment conditions changed after your original prediction. The original is preserved; save a new prediction for this setup.")
+        st.warning("The experiment conditions changed after your original prediction. The original is preserved. Save a new prediction for this setup.")
         if st.button("Save prediction for changed conditions", key="repredict." + activity, disabled=len(draft.strip()) < min_chars):
             history = list(locks.get(activity + ".history", []))
             history.append(record)

@@ -16,15 +16,7 @@ def current_signature(st, mission):
     context = None
     if mission == "mission_2":
         context = st.session_state["evidence"].get("mission_1")
-    elif mission == "mission_3":
-        selected = st.session_state["responses"].get("tutorial_4.selected_map")
-        selected_mission = "mission_1" if selected == "Mission 1" else "mission_2"
-        context = {
-            "selected_map": selected,
-            "reason": st.session_state["responses"].get("tutorial_4.map_choice"),
-            "selected_evidence": st.session_state["evidence"].get(selected_mission),
-        }
-    return evidence_id(CONTENT_VERSION, mission, st.session_state["student"].get("course_id"), context, evidence, responses, predictions)
+    return evidence_id(CONTENT_VERSION, mission, st.session_state["student"].get("email"), context, evidence, responses, predictions)
 
 
 def saved_matches(mission, signature):
@@ -39,12 +31,6 @@ def saved_matches(mission, signature):
         if mission in ("mission_1", "mission_2") and not {"map.yaml", "map.pgm"}.issubset(hashes):
             return False
         if mission in ("mission_1", "mission_2") and not any(name.startswith("rviz_screenshot.") for name in hashes):
-            return False
-        if mission == "mission_3" and not all(f"trial_{name}.json" in hashes for name in (
-            "good_initial_pose", "incorrect_initial_pose", "ambiguous_location", "degraded_sensor"
-        )):
-            return False
-        if mission == "mission_3" and len([name for name in hashes if name.startswith("rviz_")]) < 2:
             return False
         return all(
             (root / name).is_file() and hashlib.sha256((root / name).read_bytes()).hexdigest() == digest

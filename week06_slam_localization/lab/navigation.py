@@ -3,9 +3,7 @@ from lab_config import LAB
 LABELS = {
     "intro": "Introduction", "tutorial_1": "Motion estimates", "tutorial_2": "Map representations",
     "preflight": "ROS preflight", "tutorial_3": "Read SLAM in RViz",
-    "mission_1": "Build a map", "mission_2": "Compare strategies",
-    "tutorial_4": "SLAM to localization", "tutorial_5": "Read AMCL",
-    "mission_3": "Localize", "final": "Submit",
+    "mission_1": "Build a map", "mission_2": "Compare strategies", "final": "Submit",
 }
 
 
@@ -36,4 +34,4 @@ def set_stage(st, stage):
 def render_progress(st):
     stage = current_stage(st)
     index = LAB.stages.index(stage)
-    st.progress((index + 1) / len(LAB.stages), text=f"{index + 1}/{len(LAB.stages)} — {LABELS[stage]}")
+    st.progress((index + 1) / len(LAB.stages), text=f"{index + 1}/{len(LAB.stages)}: {LABELS[stage]}")
