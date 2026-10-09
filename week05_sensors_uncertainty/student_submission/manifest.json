@@ -1,0 +1,40 @@
+{
+  "files": {
+    "autosave/responses.json": "eacbff1fe935ee2786a0c64b082ebfbf684ed3732afcdf7320cf1f96b683d635",
+    "autosave/responses.md": "72365e61b971f3716aeda12fc9ba52d672416cceba61ba1f9f020758afb4d835",
+    "autosave/responses.recovery.0d550da6536d4f63b21d0233ee277d66.json": "721627cba735989b33b7b744d5497cbc6c38f277965bd93bd5b2b1511994e4b2",
+    "autosave/responses.recovery.30f1a59707164391acab70a95cc81084.json": "2353e7330066747408a3ff8e4a3b380cfe91a29327133bde79a394c1540dfc6f",
+    "autosave/responses.recovery.6dd7bfdbdb364f4bae0369ee318dcb1c.json": "3ad7842c47a3ead805817c8cf206ad9f5a672853db60227a16a200816a6140ec",
+    "autosave/responses.recovery.9f8b6c85afd54ad19f0c91d3f9d22a8c.json": "d0f4b27638a707371fad4e3cb067adb8893151fa8998797009248f1272667390",
+    "autosave/responses.recovery.bcec1a9fe8344dbeaced858ccecf2fe0.json": "04fda68b055f8db15fb62e8e14d71baedd4b9e4245cc906d8a5d300c4eedac84",
+    "autosave/responses.recovery.ee32d76fdd194737962707bca7a20cbc.json": "131d07f730ade9055a88d637ee5e0f4b0a26fa273f60ead2369f06ef0a57d6bb",
+    "final_reflection.md": "ba84723f611cbdba6b9eacd6d0307a09d137d091d8043d88f12c11970294b2c7",
+    "final_synthesis.md": "2fd2aaa9c2e1569b3186ce8dbc3885ca67b8e319f01524a579b436fae5041a48",
+    "mission_1/evidence.png": "63181f3cb5e539dc25a39d1be53a868378874757fef282cfdf081b027f13055a",
+    "mission_1/explanation.md": "f4178e52aab3c5fb509779c4ba8e14fb07464d50b281bda94e821c2fc2f85d48",
+    "mission_1/measurements.csv": "4a5404df4b01e7d64b5ea7deb7ee97c8df13d1144f694ad6bdeaf55e5f870aaf",
+    "mission_1/submission.json": "34629a82bd8d341d260c448abd23a8353126386b25dcd48ec743c78ff02c99ac",
+    "mission_2/evidence.png": "b53955c8e7adc1059387a89eb28e4b18ba0a279833b19b3155301b485a5e87b3",
+    "mission_2/explanation.md": "3b8169fc3e53b4a843857e959b32ed958d26f82b177dc2850152e97cfef1cde8",
+    "mission_2/measurements.csv": "66eca0d3a8892d1e0d404bc88b92bd096145272be1f3bd6d100f27efa25d00e8",
+    "mission_2/submission.json": "aa1f23dc2bad4a74b2543aafbca1cbb1d7b4afbaa13bdae31177f66730ff090f",
+    "mission_3/explanation.md": "ca44446eb2eca69f28d3930d4f1aa365771b644d47dfdd1ce3d89d0af18bf672",
+    "mission_3/measurements.csv": "19beb85d2ab4b1f10de2ad25477a86b0627b27e468ce114f801a0bcd447a636e",
+    "mission_3/submission.json": "7b5e5977001cba5e0ecb2b9b11dde04faa82cef9e9ecad510b0e91a58200415b",
+    "student.json": "345926adb3ac3a71b9796c509cf9b6353675025b5a9f136dee13c69917fc0181"
+  },
+  "generated_at": "2026-10-09T00:13:02.518541+00:00",
+  "lab_id": "week05_sensors_uncertainty",
+  "mission_signatures": {
+    "mission_1": "05eda008fdaf5e91",
+    "mission_2": "5d26599fb211e5a6",
+    "mission_3": "9606e8d8f62f2171"
+  },
+  "response_signature": "c6d88ee9b8d368a2",
+  "schema_version": 2,
+  "student": {
+    "course_id": "24454203",
+    "email": "Jonathan.ng03@login.cuny.edu",
+    "name": "Jonathan Ng"
+  }
+}
