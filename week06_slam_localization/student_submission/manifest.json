@@ -1,0 +1,35 @@
+{
+  "files": {
+    "autosave/responses.json": "d51f0d14b84c92fd19121198d301f3a7459c1ee440b1708e45fa261ffe6e58ce",
+    "autosave/responses.md": "9842688fc4410f1257229c2e23020ecc4bc55e2d47a20da97624bf39b6e5a092",
+    "final_reflection.md": "2bb87fd4d3fa0b8babd7851bd6f7996ef2524e6732da695544d5f68bde03e9ad",
+    "final_synthesis.md": "d79028baa9f4c135dd32a6453f51f1a2bc24262eba33be6949cbc4c0dd89d5ec",
+    "mission_1/analysis.json": "1f1024bf43d57dc13671fd684c966ec85780fe6036ae4bcdafa751bd79fd5276",
+    "mission_1/evidence.json": "302f21c575517369fa7ceb7fd2aab31002b674b1c32d824e02b9410c614bfc04",
+    "mission_1/explanation.md": "76abd75886cdfcb68639f0a939527cecbb7dff96b3fe43d737b0ac4bb87197b2",
+    "mission_1/map.pgm": "fef8e1fd37b7ea3a1e7192bcd29e35e6eb84fb39b5e94eed877a9acf5dc76744",
+    "mission_1/map.yaml": "4f898415f4ecac060910f23a5c7bb185a9ba3a91e6984ec1ddf9aef08801d8c0",
+    "mission_1/rviz_screenshot.png": "c5a406fab50f71085c46cc8a9cda30aad76029e353c5cdcb4a532d0bcd0a98c2",
+    "mission_1/submission.json": "39e00e301231985f0c88db0393e0a62373982a7586577cae2eecf3506e30c9ac",
+    "mission_2/analysis.json": "afa2ebdc73ddc854e751a77510f698bef98d2257bb87db5d1c49fb2e471effda",
+    "mission_2/evidence.json": "cd5367805603d9d28f027b9356a4e28679f2207e0008aa3f8b134b9b8b89aacb",
+    "mission_2/explanation.md": "ed4ee7f2c7dc2daf5252fcd92ddb3bdc288fcd4c022dda8d8e18f3f6f1778bd0",
+    "mission_2/map.pgm": "8821d3841e369d566afa002ea2b079068fb4128e1c2d06b065c4097dd3c1f94a",
+    "mission_2/map.yaml": "4a70e78b734b1ebd15163d6db0adeab5064689beca778608508bfde5184bf417",
+    "mission_2/rviz_screenshot.png": "da5501e4fa412adef67e95d4efeeb9665d30699167de27050b29e614918b1a4f",
+    "mission_2/submission.json": "67e66d87f8bd84f3c950e7b9f93084b9273ea995da3823ef3187fb2da25988c8",
+    "student.json": "54e5ea7d6543316f33259b735b55fdea78cc660449b4f087c4fe1022ec4e18d2"
+  },
+  "generated_at": "2026-10-22T22:48:06.505746+00:00",
+  "lab_id": "week06_slam_localization",
+  "mission_signatures": {
+    "mission_1": "c5e4685f8eb77242",
+    "mission_2": "73959505f1650de0"
+  },
+  "response_signature": "0149c590ada6908f",
+  "schema_version": 2,
+  "student": {
+    "email": "Jonathan.ng03@login.cuny.edu",
+    "name": "Jonathan Ng"
+  }
+}
