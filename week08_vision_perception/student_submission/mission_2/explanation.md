@@ -1,0 +1,7 @@
+# mission_2
+
+## choice
+I would recommend the learned detector with an acceptance threshold of 0.50. This is because it performed better than the classical detector due to the fact it produced fewer false boxes and was able to actaully located one mug under normal conditions. However, it still missed mugs under dim and occluded conditions, so it would need additional testing. Using normal_1, it  had a mask IoU of 0.5756 and a Dice score of 0.7306. Although it looked like the mug was very well highlighted, it included 4,453 extra pixels and missed 1,852 mug pixels. This shows that it does have it's limitations. One important is that it does not show whether the detector would work well with different camera angles or lighting conditions.
+
+## comparison
+For normal, the detector had 0 correct boxes, 2 false boxes, and 2 missed mugs, while for learned had 1 correct box, 0 false boxes, and 1 missed mug. For dim, the classical detector had 0 correct boxes, 2 false boxes, and 2 missed mugs, while for learned had 0 correct boxes, 0 false boxes, and 2 missed mugs. This was the same for occluded conditions as well. This shows that the learned detector was better at avoiding false detections than the other detectors. In the normal_1 image, it was shown that the classical detector's box had a large area around the mug, while the learned detector's box had a better accuracy on the mug. This matters because detecting an object is different from locating it.
