@@ -1,0 +1,45 @@
+{
+  "status": "succeeded",
+  "error": "",
+  "planning_s": 3.9495000237366185e-05,
+  "expanded": 6,
+  "peak_frontier": 1,
+  "path": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ]
+  ],
+  "path_length_m": 1.5,
+  "optimal_length_m": 1.5,
+  "optimality_ratio": 1.0,
+  "case": "Narrow passage",
+  "planner": "astar",
+  "source_sha256": "7b1bbc68db287a3c91dc99da0ffc545e2bb644695d24fe09929f87c40a36afc4",
+  "expected_status": "succeeded",
+  "check_passed": true
+}

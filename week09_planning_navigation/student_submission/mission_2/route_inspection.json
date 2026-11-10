@@ -1,0 +1,14 @@
+{
+  "run_id": "constrained_bfs_0_baseline_588ebefd31",
+  "map": "constrained",
+  "planner": "bfs",
+  "sample": 425,
+  "point": {
+    "t": 44.7,
+    "x": 1.2078838066502575,
+    "y": 2.3122715140182852,
+    "speed_mps": 0.2999999999991676
+  },
+  "tracking_error_m": 0.08288380665025752,
+  "feature": "Detour"
+}

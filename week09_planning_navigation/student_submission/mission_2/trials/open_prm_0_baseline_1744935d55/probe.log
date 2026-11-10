@@ -1,0 +1,18 @@
+[INFO] [1794246307.980732737] [lab8_experiment_probe]: Waiting for Nav2 planning and path-following actions
+[INFO] [1794246311.552481052] [lab8_experiment_probe]: Waiting for map-frame robot position and lidar
+[INFO] [1794246314.549227058] [lab8_experiment_probe]: Waiting for planner_server lifecycle activation
+[INFO] [1794246315.800287267] [lab8_experiment_probe]: Waiting for controller_server lifecycle activation
+[INFO] [1794246315.991262905] [lab8_experiment_probe]: Waiting for velocity_smoother lifecycle activation
+[INFO] [1794246316.100944949] [lab8_experiment_probe]: Waiting for collision_monitor lifecycle activation
+[INFO] [1794246316.211294072] [lab8_experiment_probe]: Nav2 ready. Preparing the requested path
+[INFO] [1794246316.377013459] [lab8_experiment_probe]: Following path: 0 simulated seconds, estimated goal distance 9.65 m
+[INFO] [1794246321.476028055] [lab8_experiment_probe]: Following path: 5 simulated seconds, estimated goal distance 8.62 m
+[INFO] [1794246326.564847452] [lab8_experiment_probe]: Following path: 9 simulated seconds, estimated goal distance 7.49 m
+[INFO] [1794246331.672677660] [lab8_experiment_probe]: Following path: 13 simulated seconds, estimated goal distance 6.31 m
+[INFO] [1794246336.765254425] [lab8_experiment_probe]: Following path: 18 simulated seconds, estimated goal distance 5.04 m
+[INFO] [1794246341.858380676] [lab8_experiment_probe]: Following path: 22 simulated seconds, estimated goal distance 3.87 m
+[INFO] [1794246346.947216439] [lab8_experiment_probe]: Following path: 27 simulated seconds, estimated goal distance 2.35 m
+[INFO] [1794246352.113514147] [lab8_experiment_probe]: Following path: 31 simulated seconds, estimated goal distance 1.50 m
+[INFO] [1794246357.215384032] [lab8_experiment_probe]: Following path: 34 simulated seconds, estimated goal distance 0.48 m
+[INFO] [1794246359.014347651] [lab8_experiment_probe]: Finishing trial: succeeded
+{"status": "succeeded", "output": "/workspace/week09_planning_navigation/runtime/trials/open_prm_0_baseline_1744935d55/result.json"}
