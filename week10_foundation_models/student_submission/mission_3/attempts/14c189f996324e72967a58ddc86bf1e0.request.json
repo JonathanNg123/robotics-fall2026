@@ -1,0 +1,29 @@
+{
+  "job_id": "14c189f996324e72967a58ddc86bf1e0",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Starting at (1,7), move to the red target at (2,1). Move UP untile you reach (1,0). Then, move RIGHT until you reach (6,4). After that, move DOWN until you reach (6,7). Move RIGHT until (11,7). At this point, move UP until you hit a wall.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T17:05:35.839936+00:00",
+  "comparison_ids": [
+    "5b968fc3ee4a49f4addaf3bf6408e96f",
+    "97f0866243104540a8fd5178330bfa78",
+    "1aaa3781b3cf4c4cb1bc0a939a38699c"
+  ],
+  "task": "robot",
+  "robot_state": {
+    "position": [
+      1,
+      7
+    ],
+    "step": 0,
+    "history": [],
+    "finished": false,
+    "goal_reached": false,
+    "first_goal_step": null,
+    "last_feedback": "No previous action.",
+    "last_decision": null
+  },
+  "simulator_contract": "8da30a943bd97ee39237aa05e8e6800fecdecbef3ce692d7d4e48f851679060f"
+}

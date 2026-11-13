@@ -1,0 +1,29 @@
+{
+  "job_id": "58ae1e04423a4479b4e595de26150687",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Firstly, guide the robot from (1,7) to the blue target at (11,1). Using specific coordinate points allows for least amount of error when knowing where the robot has to start and where to go. Use your current coordinates to follow the waypoints in order. It goes from (1,1), (7,1), (7,7), (11,7), and (11,1). Moving up decreases the x value (row number). Moving down does the vice versa. It increases the x value (row number) instead of decreaseing it. Moving right increases the y value (column number). Moving left does the vice versa. It decreases the y value (column number). Choose only one action per step. When you reach a waypoint, move toward the next one. Avoid walls and do not repeat moves that are already blocked. Only choose stop when you reach the final goal at (11,1).",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T16:56:36.507041+00:00",
+  "comparison_ids": [
+    "5b968fc3ee4a49f4addaf3bf6408e96f",
+    "97f0866243104540a8fd5178330bfa78",
+    "1aaa3781b3cf4c4cb1bc0a939a38699c"
+  ],
+  "task": "robot",
+  "robot_state": {
+    "position": [
+      1,
+      7
+    ],
+    "step": 0,
+    "history": [],
+    "finished": false,
+    "goal_reached": false,
+    "first_goal_step": null,
+    "last_feedback": "No previous action.",
+    "last_decision": null
+  },
+  "simulator_contract": "8da30a943bd97ee39237aa05e8e6800fecdecbef3ce692d7d4e48f851679060f"
+}

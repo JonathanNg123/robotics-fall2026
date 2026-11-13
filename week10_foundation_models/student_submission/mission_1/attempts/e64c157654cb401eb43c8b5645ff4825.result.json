@@ -1,0 +1,38 @@
+{
+  "status": "complete",
+  "record": {
+    "job_id": "e64c157654cb401eb43c8b5645ff4825",
+    "kind": "language",
+    "case": "custom",
+    "prompt": "At the base,you will  navigate to the shelf and inspect the cup. Record and report what you observe about the cup. Do not pick it up. After inspecting the cup, return to the base and stop.",
+    "phase": "custom",
+    "parent_id": null,
+    "requested_at": "2026-11-13T16:25:07.485128+00:00",
+    "comparison_ids": [
+      "bad9bf564cd840e98d6e19ab1710520a",
+      "c558436e30ae41088759d69fa647b680",
+      "5af3b2f2c4b94adf8a71241d12879cad"
+    ],
+    "output": "At the base, you will navigate to the shelf and inspect the cup. Record and report what you observe about the cup. Do not pick it up. After inspecting the cup, return to the base and stop.",
+    "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "model_revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+    "system_prompt": "You are helping a mobile robot. It starts at base. It can navigate to base, shelf or desk, inspect a known object, report observations, or stop. There is a cup on the shelf and a book on the desk. The robot has a camera and wheels but no arm or gripper. It cannot pick up or carry objects. Suggest a short plan using only these capabilities. If information is missing, ask a specific clarification question. If the task is impossible for this robot, explain why. Use at most four short sentences.",
+    "model_input": "At the base,you will  navigate to the shelf and inspect the cup. Record and report what you observe about the cup. Do not pick it up. After inspecting the cup, return to the base and stop.",
+    "image_sha256": null,
+    "image_preprocessing": null,
+    "generated_tokens": 44,
+    "max_new_tokens": 96,
+    "generation_seconds": 5.634,
+    "truncated": false,
+    "decoding": "greedy",
+    "device": "cpu",
+    "live_inference": true,
+    "library_versions": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "output_constraint": null,
+    "reused_prefix_tokens": 0,
+    "completed_at": "2026-11-13T16:25:13.367894+00:00"
+  }
+}

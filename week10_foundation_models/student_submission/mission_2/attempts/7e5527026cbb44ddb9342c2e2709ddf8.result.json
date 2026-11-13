@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "record": {
+    "job_id": "7e5527026cbb44ddb9342c2e2709ddf8",
+    "kind": "vision",
+    "case": "custom",
+    "prompt": "A robot draws a circle on a flat wooden workbench. Examine the image. Which tool would be most useful for this task? Explain your decision by stating what features of the tool allow for doing the task. If you are unsure, explain what additional information you would need before choosing it.",
+    "phase": "custom",
+    "parent_id": null,
+    "requested_at": "2026-11-13T16:35:55.894783+00:00",
+    "comparison_ids": [
+      "6d2100592053452e9f843a236fb06cef",
+      "017bc67d7e184a748d9e10a35c8df648",
+      "159df53be4b14a93959420ce2d89070d"
+    ],
+    "output": "A compass. A compass is useful for drawing a circle on a flat wooden workbench because it allows you to draw a perfect circle without any deviation.",
+    "model": "HuggingFaceTB/SmolVLM-500M-Instruct",
+    "model_revision": "a7da5b986cb59b408707209984f360a5f4ad7e47",
+    "system_prompt": "",
+    "model_input": "A robot draws a circle on a flat wooden workbench. Examine the image. Which tool would be most useful for this task? Explain your decision by stating what features of the tool allow for doing the task. If you are unsure, explain what additional information you would need before choosing it.",
+    "image_sha256": "0c0e4365ce25ec9f22daf3bd4d95883bddd9782289ec17fdb7d2b7c4e8b280ff",
+    "image_preprocessing": {
+      "longest_edge": 512,
+      "image_splitting": false
+    },
+    "generated_tokens": 31,
+    "max_new_tokens": 80,
+    "generation_seconds": 5.792,
+    "truncated": false,
+    "decoding": "greedy",
+    "device": "cpu",
+    "live_inference": true,
+    "library_versions": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "output_constraint": null,
+    "reused_prefix_tokens": 0,
+    "completed_at": "2026-11-13T16:36:01.858559+00:00"
+  }
+}

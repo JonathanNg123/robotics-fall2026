@@ -1,0 +1,29 @@
+{
+  "job_id": "7e325760488c4623820b6697e12fbb4e",
+  "kind": "language",
+  "case": "custom",
+  "prompt": "Starting from (1,7), we want reach the blue target at (11,1). Move UP to decrease the row, DOWN to increase the row, RIGHT to increase the column, and LEFT to decrease the column. Choose only one action per step. When you reach a waypoint, move toward the next one. Avoid walls and do not repeat blocked moves. Only choose STOP when you reach the final goal at (11,1).",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T17:15:57.208576+00:00",
+  "comparison_ids": [
+    "5b968fc3ee4a49f4addaf3bf6408e96f",
+    "97f0866243104540a8fd5178330bfa78",
+    "1aaa3781b3cf4c4cb1bc0a939a38699c"
+  ],
+  "task": "robot",
+  "robot_state": {
+    "position": [
+      1,
+      7
+    ],
+    "step": 0,
+    "history": [],
+    "finished": false,
+    "goal_reached": false,
+    "first_goal_step": null,
+    "last_feedback": "No previous action.",
+    "last_decision": null
+  },
+  "simulator_contract": "8da30a943bd97ee39237aa05e8e6800fecdecbef3ce692d7d4e48f851679060f"
+}

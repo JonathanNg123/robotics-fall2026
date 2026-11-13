@@ -1,0 +1,14 @@
+{
+  "job_id": "7e5527026cbb44ddb9342c2e2709ddf8",
+  "kind": "vision",
+  "case": "custom",
+  "prompt": "A robot draws a circle on a flat wooden workbench. Examine the image. Which tool would be most useful for this task? Explain your decision by stating what features of the tool allow for doing the task. If you are unsure, explain what additional information you would need before choosing it.",
+  "phase": "custom",
+  "parent_id": null,
+  "requested_at": "2026-11-13T16:35:55.894783+00:00",
+  "comparison_ids": [
+    "6d2100592053452e9f843a236fb06cef",
+    "017bc67d7e184a748d9e10a35c8df648",
+    "159df53be4b14a93959420ce2d89070d"
+  ]
+}
